@@ -1,0 +1,18 @@
+# solution from Qualtrics community user @fleb 
+# see the full discussion here https://www.qualtrics.com/community/discussion/5078/progress-bar
+# copy the following code into the text box in 'Look & Feel' --> 'General' --> 'Header' --> 'Edit' --> 'Source'
+# set 'n' to your page count
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div class="container">
+<div class="progress">
+<div class="progress-bar" id="progressbar" role="progressbar" style="width:${e://Field/pb}%">${e://Field/pb}%</div>
+</div>
+</div>
+<script>
+    var n = 13;
+    var increment = Math.round(100/n); 
+    var old_val = Number(Qualtrics.SurveyEngine.getEmbeddedData( 'pb'));
+    var new_val = old_val + increment;
+    Qualtrics.SurveyEngine.setEmbeddedData( 'pb', new_val);
+</script>
