@@ -6,7 +6,7 @@
 </div>
 <script>
     var n = 13;
-    var increment = Math.round(100/n); 
+    var increment = Math.round(((100/n) + Number.EPSILON) * 100) / 100;
     var old_val = Number(Qualtrics.SurveyEngine.getEmbeddedData( 'pb'));
     var new_val = old_val + increment;
     Qualtrics.SurveyEngine.setEmbeddedData( 'pb', new_val);
